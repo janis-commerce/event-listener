@@ -16,7 +16,6 @@ npm install @janiscommerce/event-listener
 ## Usage
 ```js
 const EventListener = require('@janiscommerce/event-listener');
-
 ```
 
 ## Examples
