@@ -33,7 +33,6 @@ describe('Serverless Handler', () => {
 		body: {
 			...sampleEvent
 		},
-		requestPath: '/api/listener/profile/created',
 		path: {},
 		authorizer: {
 			janisAuth: JSON.stringify({ clientCode: 'fizzmod' })
@@ -47,21 +46,6 @@ describe('Serverless Handler', () => {
 		});
 
 		context('Validation errors', () => {
-
-			it('Should return a 500 http error if requestPath is not defined', async () => {
-
-				const apiResponseStub = sinon.stub(ApiResponse, 'send');
-
-				await ServerlessHandler.handle(MyEventListener, {});
-
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, {
-					statusCode: 500,
-					body: {
-						message: sinon.match(/requestPath/)
-					}
-				});
-			});
 
 			it('Should return a 400 http error if request headers are not an object', async () => {
 
@@ -127,89 +111,6 @@ describe('Serverless Handler', () => {
 		});
 
 		context('Default values and transformations', () => {
-
-			it('Should trim api from the start of the endpoint', async () => {
-
-				class EndpointEventListener extends EventListener {
-					async process() {
-						this.setBody({
-							endpoint: this.endpoint
-						});
-					}
-				}
-
-				const apiResponseStub = sinon.stub(ApiResponse, 'send');
-
-				await ServerlessHandler.handle(EndpointEventListener, { ...sampleServerlessEvent });
-
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, sinon.match({
-					statusCode: 200,
-					body: {
-						endpoint: 'listener/profile/created'
-					}
-				}));
-			});
-
-			it('Should not replace requestPath variables in the endpoint if path variables are not set', async () => {
-
-				class EndpointEventListener extends EventListener {
-					async process() {
-						this.setBody({
-							endpoint: this.endpoint
-						});
-					}
-				}
-
-				const apiResponseStub = sinon.stub(ApiResponse, 'send');
-
-				const { requestPath, path, ...slsEvent } = { ...sampleServerlessEvent };
-
-				await ServerlessHandler.handle(EndpointEventListener, {
-					...slsEvent,
-					requestPath: 'listener/{entity}/{event}',
-					path: {
-						entity: 'profile',
-						event: 'created'
-					}
-				});
-
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, sinon.match({
-					statusCode: 200,
-					body: {
-						endpoint: 'listener/profile/created'
-					}
-				}));
-			});
-
-			it('Should replace requestPath variables in the endpoint', async () => {
-
-				class EndpointEventListener extends EventListener {
-					async process() {
-						this.setBody({
-							endpoint: this.endpoint
-						});
-					}
-				}
-
-				const apiResponseStub = sinon.stub(ApiResponse, 'send');
-
-				const { requestPath, path, ...slsEvent } = { ...sampleServerlessEvent };
-
-				await ServerlessHandler.handle(EndpointEventListener, {
-					...slsEvent,
-					requestPath: 'listener/{entity}/{event}'
-				});
-
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, sinon.match({
-					statusCode: 200,
-					body: {
-						endpoint: 'listener/{entity}/{event}'
-					}
-				}));
-			});
 
 			it('Should set the default request headers (empty object) if they are not present', async () => {
 
