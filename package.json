@@ -35,6 +35,6 @@
   "dependencies": {
     "@janiscommerce/api": "^4.1.1",
     "@janiscommerce/api-session": "^1.2.1",
-    "@janiscommerce/sls-api-response": "^1.2.0"
+    "@janiscommerce/sls-api-response": "^1.2.1"
   }
 }
