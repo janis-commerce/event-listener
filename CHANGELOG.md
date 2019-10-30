@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.2] - 2019-10-30
+### Fixed
+- Removed side effect on sls-api-response dependency
+
 ## [1.0.1] - 2019-10-29
 ### Removed
 - Unused endpoint handling
