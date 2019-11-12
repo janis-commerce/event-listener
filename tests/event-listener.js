@@ -48,6 +48,11 @@ describe('Event Listener', () => {
 			assert.strictEqual(eventListener.eventClient, 'fizzmod');
 			assert.strictEqual(eventListener.eventId, '5d699c1ae8ebb95eaa24aca9');
 		});
+
+		it('Should return false as shouldCreateLog getter', () => {
+			const eventListener = new EventListener();
+			assert.strictEqual(eventListener.shouldCreateLog, false);
+		});
 	});
 
 	describe('Validation', () => {
