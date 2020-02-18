@@ -1,6 +1,6 @@
 {
   "name": "@janiscommerce/event-listener",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An API handler to implement event listeners",
   "main": "lib/index.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "@janiscommerce/api": "^4.2.0",
+    "@janiscommerce/api": "^4.2.2",
     "@janiscommerce/api-session": "^1.2.1",
     "@janiscommerce/sls-api-response": "^1.2.1"
   }
