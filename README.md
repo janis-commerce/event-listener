@@ -86,6 +86,14 @@ This package implements [API Session](https://www.npmjs.com/package/@janiscommer
 
 Session details and customization details can be found in api-session README.
 
+### ⚠️ **Breaking changes from version *2.0.0*** ⚠️
+*Since 2.0.0*
+
+Upgraded [API](https://www.npmjs.com/package/@janiscommerce/api) dependency to `^5.x.x` and [API Session](https://www.npmjs.com/package/@janiscommerce/api-session) to `^2.x.x`
+
+The session of an api allows you to validates **locations** instead of **stores**
+
+For more information see [API](https://www.npmjs.com/package/@janiscommerce/api) and [API Session](https://www.npmjs.com/package/@janiscommerce/api-session)
 
 ## Serverless configuration
 
