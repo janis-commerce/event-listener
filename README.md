@@ -1,7 +1,8 @@
 # event-listener
 
-[![Build Status](https://travis-ci.org/janis-commerce/event-listener.svg?branch=master)](https://travis-ci.org/janis-commerce/event-listener)
+![Build Status](https://github.com/janis-commerce/event-listener/workflows/Build%20Status/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/janis-commerce/event-listener/badge.svg?branch=master)](https://coveralls.io/github/janis-commerce/event-listener?branch=master)
+[![npm version](https://badge.fury.io/js/%40janiscommerce%2Fevent-listener.svg)](https://www.npmjs.com/package/@janiscommerce/event-listener)
 
 An API handler to implement event listeners
 
@@ -85,15 +86,6 @@ It also uses the following error codes:
 This package implements [API Session](https://www.npmjs.com/package/@janiscommerce/api-session). In order to associate a request to a session, you must pass a valid authentication data in the `authenticationData` property of the Dispatcher constructor.
 
 Session details and customization details can be found in api-session README.
-
-### ⚠️ **Breaking changes from version *2.0.0*** ⚠️
-*Since 2.0.0*
-
-Upgraded [API](https://www.npmjs.com/package/@janiscommerce/api) dependency to `^5.x.x` and [API Session](https://www.npmjs.com/package/@janiscommerce/api-session) to `^2.x.x`
-
-The session of an api allows you to validates **locations** instead of **stores**
-
-For more information see [API](https://www.npmjs.com/package/@janiscommerce/api) and [API Session](https://www.npmjs.com/package/@janiscommerce/api-session)
 
 ## Serverless configuration
 
