@@ -4,6 +4,8 @@ const sinon = require('sinon');
 
 const { ApiResponse } = require('@janiscommerce/sls-api-response');
 
+const Events = require('@janiscommerce/events');
+
 const { EventListener } = require('../../lib');
 const ServerlessHandler = require('../../lib/serverless/handler');
 
@@ -41,7 +43,15 @@ describe('Serverless Handler', () => {
 
 	describe('Handle', () => {
 
+		beforeEach(() => {
+			sinon.stub(Events, 'emit')
+				.resolves();
+		});
+
 		afterEach(() => {
+
+			sinon.assert.calledOnceWithExactly(Events.emit, 'janiscommerce.ended');
+
 			sinon.restore();
 		});
 
@@ -58,8 +68,7 @@ describe('Serverless Handler', () => {
 					headers: []
 				});
 
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, {
+				sinon.assert.calledOnceWithExactly(apiResponseStub, {
 					statusCode: 400,
 					body: {
 						message: sinon.match(/headers/i)
@@ -80,8 +89,7 @@ describe('Serverless Handler', () => {
 					}
 				});
 
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, {
+				sinon.assert.calledOnceWithExactly(apiResponseStub, {
 					statusCode: 400,
 					body: {
 						message: sinon.match(/authentication data/i)
@@ -100,8 +108,7 @@ describe('Serverless Handler', () => {
 					method: 'get'
 				});
 
-				sinon.assert.calledOnce(apiResponseStub);
-				sinon.assert.calledWithExactly(apiResponseStub, {
+				sinon.assert.calledOnceWithExactly(apiResponseStub, {
 					statusCode: 400,
 					body: {
 						message: sinon.match(/method/i)
