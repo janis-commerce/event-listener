@@ -4,9 +4,9 @@
   "description": "An API handler to implement event listeners",
   "main": "lib/index.js",
   "scripts": {
-    "test": "export TEST_ENV=true; mocha --exit -R nyan --recursive tests/",
-    "watch-test": "export TEST_ENV=true; mocha --exit -R nyan -w --recursive tests/",
-    "test-ci": "nyc --reporter=lcov --reporter=text-summary mocha --exit --recursive tests/",
+    "test": "export TEST_ENV=true; mocha --exit -R nyan --recursive tests/ --require tests/resources/bootstrap",
+    "watch-test": "export TEST_ENV=true; mocha --exit -R nyan -w --recursive tests/ --require tests/resources/bootstrap",
+    "test-ci": "nyc --reporter=lcov --reporter=text-summary mocha --exit --recursive tests/ --require tests/resources/bootstrap",
     "coverage": "nyc npm test",
     "lint": "eslint lib/ tests/",
     "build-types": "tsc lib/index.js --declaration --allowJs --emitDeclarationOnly --outDir types",
@@ -41,6 +41,7 @@
     "@janiscommerce/api": "^7.0.0",
     "@janiscommerce/api-session": "^3.3.1",
     "@janiscommerce/events": "^0.2.0",
-    "@janiscommerce/sls-api-response": "^1.5.0"
+    "@janiscommerce/sls-api-response": "^1.5.0",
+    "lllog": "^1.1.2"
   }
 }
