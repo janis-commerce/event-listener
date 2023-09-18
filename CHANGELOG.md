@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [5.0.0] - 2023-09-18
+### Changed
+- Updated `@janiscommerce/log` to version 5 **BREAKING CHANGE**
+
 ## [4.0.1] - 2023-04-27
 ### Added
 - An internal logger has been added to be able to debug better when an error occurs in an event listener
