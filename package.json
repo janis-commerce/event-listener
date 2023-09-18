@@ -1,6 +1,6 @@
 {
   "name": "@janiscommerce/event-listener",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "An API handler to implement event listeners",
   "main": "lib/index.js",
   "scripts": {
