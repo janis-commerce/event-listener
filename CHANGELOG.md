@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [5.0.1] - 2023-09-18
+### Fixed
+- Fixed unexpected error when dispatcher have no auth data
+
 ## [5.0.0] - 2023-09-18
 ### Changed
 - Update [@janiscommerce/api](https://www.npmjs.com/package/@janiscommerce/api) to version 8.0.0
