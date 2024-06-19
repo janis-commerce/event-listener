@@ -5,6 +5,7 @@ const sinon = require('sinon');
 const { ApiResponse } = require('@janiscommerce/sls-api-response');
 
 const Events = require('@janiscommerce/events');
+const Log = require('@janiscommerce/log');
 
 const { EventListener } = require('../../lib');
 const ServerlessHandler = require('../../lib/serverless/handler');
@@ -44,13 +45,14 @@ describe('Serverless Handler', () => {
 	describe('Handle', () => {
 
 		beforeEach(() => {
-			sinon.stub(Events, 'emit')
-				.resolves();
+			sinon.stub(Events, 'emit');
+			sinon.stub(Log, 'start');
 		});
 
 		afterEach(() => {
 
 			sinon.assert.calledOnceWithExactly(Events.emit, 'janiscommerce.ended');
+			sinon.assert.calledOnceWithExactly(Log.start);
 
 			sinon.restore();
 		});

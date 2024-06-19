@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [5.0.2] - 2024-06-19
+### Fixed
+- Calling `Log.start()` when `handle()` is called to ensure end Trace Layer Extension
+
 ## [5.0.1] - 2023-09-18
 ### Fixed
 - Fixed unexpected error when dispatcher have no auth data

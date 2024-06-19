@@ -41,6 +41,7 @@
     "@janiscommerce/api": "^8.0.0",
     "@janiscommerce/api-session": "^3.3.1",
     "@janiscommerce/events": "^0.2.0",
+    "@janiscommerce/log": "^5.0.12",
     "@janiscommerce/sls-api-response": "^1.5.0",
     "lllog": "^1.1.2"
   }
