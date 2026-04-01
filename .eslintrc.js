@@ -9,12 +9,22 @@ module.exports = {
 		mocha: true
 	},
 
+	globals: {
+		__rootpath: true,
+		coreRequire: true,
+		mainRequire: true,
+		JANIS_CORE: true,
+		JANIS_ENV: true,
+		JANIS_ENV_ALIAS: true
+	},
+
 	parserOptions: {
 		sourceType: 'script',
-		ecmaVersion: 2020
+		ecmaVersion: 2022
 	},
 
 	rules: {
+		strict: ['error', 'global'],
 		'operator-linebreak': 0,
 		'no-continue': 0,
 		'no-plusplus': 0,
@@ -24,6 +34,7 @@ module.exports = {
 		'consistent-return': 0,
 		'prefer-template': 0,
 		'import/no-unresolved': 0,
+		'import/extensions': 0,
 		'import/no-extraneous-dependencies': ['error', { devDependencies: ['**/tests/**/*.js'] }],
 
 		'no-bitwise': 0,

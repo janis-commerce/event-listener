@@ -20,14 +20,14 @@
   "license": "ISC",
   "homepage": "https://github.com/janis-commerce/event-listener.git#readme",
   "devDependencies": {
-    "eslint": "^8.4.1",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-import": "^2.25.3",
+    "eslint": "^8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.32.0",
     "husky": "^8.0.3",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "sinon": "^15.0.3",
-    "typescript": "^4.5.2"
+    "sinon": "^15.2.0",
+    "typescript": "^4.9.5"
   },
   "files": [
     "lib/",
@@ -38,10 +38,10 @@
     "test": "tests"
   },
   "dependencies": {
-    "@janiscommerce/api": "^8.0.0",
-    "@janiscommerce/api-session": "^3.3.1",
+    "@janiscommerce/api": "^8.1.0",
+    "@janiscommerce/api-session": "^3.4.0",
     "@janiscommerce/events": "^0.2.0",
-    "@janiscommerce/log": "^5.0.12",
+    "@janiscommerce/log": "^5.2.0",
     "@janiscommerce/sls-api-response": "^1.5.0",
     "lllog": "^1.1.2"
   }

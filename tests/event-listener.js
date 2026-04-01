@@ -205,7 +205,6 @@ describe('Event Listener', () => {
 
 		it('Should reject if client property is missing and Listener mustHaveClient', async () => {
 
-
 			const { client, ...event } = { ...sampleEvent };
 
 			const eventListener = new MyEventListener();

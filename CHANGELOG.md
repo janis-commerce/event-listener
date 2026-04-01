@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [5.0.3] - 2026-04-01
+### Changed
+- Updated dependencies and package configuration
+
+### Fixed
+- Emitting `janiscommerce.ended` event after each execution
+
 ## [5.0.2] - 2024-06-19
 ### Fixed
 - Calling `Log.start()` when `handle()` is called to ensure end Trace Layer Extension
