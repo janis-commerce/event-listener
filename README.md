@@ -64,7 +64,7 @@ This is the class you should use as a handler for your AWS Lambda functions.
 This will handle the lambda execution.
 * Listener {Class} The event listener class. It's recommended to extend from this package `EventListener` class.
 * event {object} The lambda event object
-* context {object} The lambda context object
+* context {object} The lambda context object. It's used to set the `AWS_LAMBDA_REQUEST_ID` env var with the `awsRequestId` on every invocation (set as an empty string if not received).
 * callback {function} The lambda callback function
 
 
