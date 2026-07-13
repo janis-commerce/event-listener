@@ -2,6 +2,7 @@
 
 'use strict';
 
+const assert = require('assert');
 const sinon = require('sinon');
 
 const { ApiResponse } = require('@janiscommerce/sls-api-response');
@@ -57,6 +58,29 @@ describe('Serverless Handler', () => {
 			sinon.assert.calledOnceWithExactly(Log.start);
 
 			sinon.restore();
+		});
+
+		context('Lambda context handling', () => {
+
+			it('Should set the AWS_LAMBDA_REQUEST_ID env var with the context awsRequestId', async () => {
+
+				sinon.stub(ApiResponse, 'send');
+
+				await ServerlessHandler.handle(MyEventListener, { ...sampleServerlessEvent }, { awsRequestId: 'test-request-id' });
+
+				assert.strictEqual(process.env.AWS_LAMBDA_REQUEST_ID, 'test-request-id');
+			});
+
+			it('Should set the AWS_LAMBDA_REQUEST_ID env var as empty if no context is received', async () => {
+
+				process.env.AWS_LAMBDA_REQUEST_ID = 'stale-request-id';
+
+				sinon.stub(ApiResponse, 'send');
+
+				await ServerlessHandler.handle(MyEventListener, { ...sampleServerlessEvent });
+
+				assert.strictEqual(process.env.AWS_LAMBDA_REQUEST_ID, '');
+			});
 		});
 
 		context('Validation errors', () => {
